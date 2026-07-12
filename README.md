@@ -1,12 +1,12 @@
 # TEF/TCF Canada Simulator (Unofficial)
 
-> ⚠️ This is an **independent, unofficial** project, with no affiliation to CCIP (Chambre de Commerce et d'Industrie de Paris Île-de-France), France Éducation International, IRCC, or the Canadian government. All practice content is original and does not reproduce real exam questions.
+> This is an **independent, unofficial** project, with no affiliation to CCIP (Chambre de Commerce et d'Industrie de Paris Île-de-France), France Éducation International, IRCC, or the Canadian government. All practice content is original and does not reproduce real exam questions.
 
 Open-source simulator for the **TEF Canada** and **TCF Canada** French proficiency exams, used in Canadian immigration processes (Express Entry, PNP, citizenship). The project aims to closely replicate the format, timing, and structure of the real exams, offering an estimated level (NCLC/CLB) via AI-assisted scoring.
 
 ## Status
 
-🚧 Under development — Phase 1 (writing expression) in progress.
+Under development — Phase 1 (writing expression) in progress.
 
 ## Why this project exists
 
@@ -21,6 +21,19 @@ Free, realistic practice tools for TEF/TCF are scarce, especially in a digital f
 ## Stack
 
 Next.js · TypeScript · Prisma · Anthropic API (Claude)
+
+## Getting started
+
+```bash
+npm install
+cp .env.example .env.local   # then add a real ANTHROPIC_API_KEY
+npx prisma db push           # creates the local SQLite dev.db
+npm run dev
+```
+
+Open http://localhost:3000, pick an exam and target level, and complete the writing
+section. Scoring calls the Anthropic API, so a valid `ANTHROPIC_API_KEY` in
+`.env.local` is required for the results step to work.
 
 ## Contributing
 

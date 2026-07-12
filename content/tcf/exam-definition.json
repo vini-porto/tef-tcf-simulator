@@ -1,0 +1,10 @@
+{
+  "id": "tcf-canada",
+  "examType": "TCF",
+  "displayName": "TCF Canada",
+  "version": "2026.1",
+  "totalDurationMin": 60,
+  "sections": ["tcf-expression-ecrite"],
+  "officialSource": "https://www.france-education-international.fr/tcf-canada",
+  "disclaimer": "Estimation non officielle. Ne remplace pas l'évaluation officielle de l'examen."
+}

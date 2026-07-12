@@ -1,0 +1,112 @@
+[
+  {
+    "id": "tcf-ee-task-1-a1-01",
+    "taskTemplateId": "tcf-ee-task-1",
+    "cecrLevel": "A1",
+    "title": "Prendre des nouvelles d'un collègue",
+    "promptText": "Un collègue de travail a été absent la semaine dernière parce qu'il était malade. Écrivez-lui un court message pour prendre de ses nouvelles et lui dire que vous pensez à lui.",
+    "tags": ["vie quotidienne", "travail"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-ee-task-1-a2-01",
+    "taskTemplateId": "tcf-ee-task-1",
+    "cecrLevel": "A2",
+    "title": "Inviter un ami à une fête",
+    "promptText": "Vous organisez une petite fête pour votre anniversaire. Écrivez un message à un ami pour l'inviter et lui donner les informations essentielles (date, heure, lieu).",
+    "tags": ["vie quotidienne", "amitié"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-ee-task-2-a2-01",
+    "taskTemplateId": "tcf-ee-task-2",
+    "cecrLevel": "A2",
+    "title": "Mon dernier week-end",
+    "promptText": "Racontez votre dernier week-end : ce que vous avez fait, avec qui, et ce que vous avez préféré.",
+    "tags": ["récit", "vie quotidienne"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-ee-task-2-b1-01",
+    "taskTemplateId": "tcf-ee-task-2",
+    "cecrLevel": "B1",
+    "title": "Un voyage marquant",
+    "promptText": "Décrivez un voyage qui vous a marqué. Expliquez où vous êtes allé(e), ce qui s'est passé, et pourquoi cette expérience compte pour vous.",
+    "tags": ["récit", "voyage"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-ee-task-2-b2-01",
+    "taskTemplateId": "tcf-ee-task-2",
+    "cecrLevel": "B2",
+    "title": "S'adapter à un grand changement",
+    "promptText": "Racontez une situation dans laquelle vous avez dû vous adapter à un changement important dans votre vie (déménagement, nouveau travail, nouvelle ville). Décrivez vos émotions et ce que vous en avez appris.",
+    "tags": ["récit", "immigration"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-ee-task-3-b1-01",
+    "taskTemplateId": "tcf-ee-task-3",
+    "cecrLevel": "B1",
+    "title": "Les réseaux sociaux et les jeunes",
+    "promptText": "Lisez les deux documents ci-dessous, faites-en une brève synthèse, puis donnez votre opinion personnelle sur le sujet.",
+    "contextDocuments": [
+      {
+        "label": "Document 1",
+        "text": "Pour de nombreux éducateurs, les réseaux sociaux permettent aux jeunes de rester en contact avec leurs amis, de développer leur créativité et de s'informer plus facilement sur le monde qui les entoure."
+      },
+      {
+        "label": "Document 2",
+        "text": "D'autres spécialistes s'inquiètent des effets des réseaux sociaux sur la concentration, le sommeil et l'estime de soi des adolescents, et recommandent d'en limiter l'usage au quotidien."
+      }
+    ],
+    "tags": ["société", "éducation", "technologie"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-ee-task-3-b2-01",
+    "taskTemplateId": "tcf-ee-task-3",
+    "cecrLevel": "B2",
+    "title": "L'avenir des petits commerces",
+    "promptText": "Lisez les deux documents ci-dessous, faites-en une brève synthèse, puis donnez votre opinion personnelle sur le sujet.",
+    "contextDocuments": [
+      {
+        "label": "Document 1",
+        "text": "Certains observateurs estiment que le commerce en ligne offre plus de choix et de meilleurs prix aux consommateurs, et que les petits commerces doivent simplement s'adapter à cette nouvelle réalité économique."
+      },
+      {
+        "label": "Document 2",
+        "text": "D'autres soulignent que les commerces de proximité créent du lien social dans les quartiers et qu'il est essentiel de les soutenir activement pour préserver la vitalité des centres-villes."
+      }
+    ],
+    "tags": ["société", "économie", "commerce"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-ee-task-3-c1-01",
+    "taskTemplateId": "tcf-ee-task-3",
+    "cecrLevel": "C1",
+    "title": "Immigration et marché du travail",
+    "promptText": "Lisez les deux documents ci-dessous, faites-en une brève synthèse, puis donnez votre opinion personnelle sur le sujet.",
+    "contextDocuments": [
+      {
+        "label": "Document 1",
+        "text": "Plusieurs économistes soutiennent que l'immigration comble des besoins criants de main-d'œuvre dans de nombreux secteurs et contribue directement à la croissance économique du pays d'accueil."
+      },
+      {
+        "label": "Document 2",
+        "text": "D'autres analystes estiment que sans un accompagnement suffisant (reconnaissance des diplômes, formation linguistique), l'intégration professionnelle des nouveaux arrivants reste plus difficile et lente que prévu."
+      }
+    ],
+    "tags": ["immigration", "travail", "économie"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  }
+]

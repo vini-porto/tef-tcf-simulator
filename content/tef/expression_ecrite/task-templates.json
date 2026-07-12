@@ -1,0 +1,40 @@
+[
+  {
+    "id": "tef-ee-task-1",
+    "sectionId": "tef-expression-ecrite",
+    "order": 1,
+    "type": "message",
+    "durationMin": 20,
+    "minWords": 60,
+    "maxWords": 120,
+    "register": "either",
+    "cecrLevelRange": ["A1", "B1"],
+    "instructionsTemplate": "Vous devez rédiger un message court en réponse à une situation de la vie quotidienne (réservation, réclamation, invitation, etc.). Respectez le nombre de mots demandé et adoptez un registre de langue adapté à votre destinataire.",
+    "evaluationCriteria": [
+      "clarté du message",
+      "adéquation à la situation",
+      "richesse lexicale",
+      "correction grammaticale",
+      "respect du registre (tu/vous)"
+    ]
+  },
+  {
+    "id": "tef-ee-task-2",
+    "sectionId": "tef-expression-ecrite",
+    "order": 2,
+    "type": "argumentative_essay",
+    "durationMin": 40,
+    "minWords": 120,
+    "maxWords": 250,
+    "register": "either",
+    "cecrLevelRange": ["B1", "C1"],
+    "instructionsTemplate": "Vous devez rédiger un texte argumentatif structuré (introduction, développement, conclusion) exprimant votre opinion sur un sujet de société, en présentant des arguments et des exemples précis.",
+    "evaluationCriteria": [
+      "structure argumentative",
+      "cohérence et cohésion",
+      "richesse lexicale",
+      "correction grammaticale",
+      "capacité à défendre un point de vue"
+    ]
+  }
+]

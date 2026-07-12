@@ -1,0 +1,12 @@
+{
+  "id": "tef-expression-ecrite",
+  "examId": "tef-canada",
+  "type": "expression_ecrite",
+  "durationMin": 60,
+  "taskTemplateIds": ["tef-ee-task-1", "tef-ee-task-2"],
+  "allowBacktrack": false,
+  "toolsAllowed": {
+    "dictionary": false,
+    "spellcheck": false
+  }
+}

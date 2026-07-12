@@ -1,0 +1,18 @@
+[
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 0, "rawScoreMax": 2, "nclcLevel": 3, "clbLevel": 3 },
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 2, "rawScoreMax": 4, "nclcLevel": 4, "clbLevel": 4 },
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 4, "rawScoreMax": 5.5, "nclcLevel": 5, "clbLevel": 5 },
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 5.5, "rawScoreMax": 6.5, "nclcLevel": 6, "clbLevel": 6 },
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 6.5, "rawScoreMax": 7.5, "nclcLevel": 7, "clbLevel": 7 },
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 7.5, "rawScoreMax": 8.5, "nclcLevel": 8, "clbLevel": 8 },
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 8.5, "rawScoreMax": 9.5, "nclcLevel": 9, "clbLevel": 9 },
+  { "examType": "TEF", "sectionType": "expression_ecrite", "rawScoreMin": 9.5, "rawScoreMax": 10, "nclcLevel": 10, "clbLevel": 10 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 0, "rawScoreMax": 2, "nclcLevel": 3, "clbLevel": 3 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 2, "rawScoreMax": 4, "nclcLevel": 4, "clbLevel": 4 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 4, "rawScoreMax": 5.5, "nclcLevel": 5, "clbLevel": 5 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 5.5, "rawScoreMax": 6.5, "nclcLevel": 6, "clbLevel": 6 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 6.5, "rawScoreMax": 7.5, "nclcLevel": 7, "clbLevel": 7 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 7.5, "rawScoreMax": 8.5, "nclcLevel": 8, "clbLevel": 8 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 8.5, "rawScoreMax": 9.5, "nclcLevel": 9, "clbLevel": 9 },
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 9.5, "rawScoreMax": 10, "nclcLevel": 10, "clbLevel": 10 }
+]

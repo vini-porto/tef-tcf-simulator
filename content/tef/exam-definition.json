@@ -1,0 +1,10 @@
+{
+  "id": "tef-canada",
+  "examType": "TEF",
+  "displayName": "TEF Canada",
+  "version": "2026.1",
+  "totalDurationMin": 60,
+  "sections": ["tef-expression-ecrite"],
+  "officialSource": "https://www.lefrancaisdesaffaires.fr/tef-canada/",
+  "disclaimer": "Estimation non officielle. Ne remplace pas l'évaluation officielle de l'examen."
+}

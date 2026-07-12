@@ -1,0 +1,52 @@
+[
+  {
+    "id": "tef-ee-task-1-a2-01",
+    "taskTemplateId": "tef-ee-task-1",
+    "cecrLevel": "A2",
+    "title": "Une invitation déclinée poliment",
+    "promptText": "Un ami francophone qui vit maintenant à Toronto vous invite à une fête pour son nouvel appartement. Vous ne pouvez pas y aller ce soir-là. Écrivez-lui un message pour le remercier de l'invitation, expliquer poliment pourquoi vous ne pouvez pas venir, et proposer une autre date pour vous voir.",
+    "tags": ["vie quotidienne", "amitié"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-ee-task-1-b1-01",
+    "taskTemplateId": "tef-ee-task-1",
+    "cecrLevel": "B1",
+    "title": "Une réclamation à l'hôtel",
+    "promptText": "Vous avez réservé une chambre dans un petit hôtel pour un week-end, mais à votre arrivée, la chambre ne correspond pas à ce que vous aviez demandé. Écrivez un message au gérant de l'hôtel pour expliquer le problème et demander une solution.",
+    "tags": ["réclamation", "voyage"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-ee-task-2-b1-01",
+    "taskTemplateId": "tef-ee-task-2",
+    "cecrLevel": "B1",
+    "title": "Le télétravail, une bonne chose ?",
+    "promptText": "De plus en plus de personnes choisissent de travailler à distance plutôt que de se rendre au bureau. Selon vous, le télétravail est-il une bonne chose pour la société ? Présentez votre opinion à l'aide d'arguments et d'exemples précis.",
+    "tags": ["travail", "société"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-ee-task-2-b2-01",
+    "taskTemplateId": "tef-ee-task-2",
+    "cecrLevel": "B2",
+    "title": "Limiter la voiture en ville",
+    "promptText": "Certaines villes canadiennes envisagent de limiter la circulation des voitures individuelles dans les centres-villes pour réduire la pollution. Êtes-vous favorable à ce type de mesure ? Justifiez votre position avec des arguments précis.",
+    "tags": ["environnement", "urbanisme"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-ee-task-2-c1-01",
+    "taskTemplateId": "tef-ee-task-2",
+    "cecrLevel": "C1",
+    "title": "L'intelligence artificielle au travail",
+    "promptText": "L'intelligence artificielle transforme rapidement le monde du travail. Pensez-vous que cette transformation profite davantage aux individus ou aux entreprises ? Développez une argumentation nuancée en vous appuyant sur des exemples concrets.",
+    "tags": ["technologie", "travail"],
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  }
+]

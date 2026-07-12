@@ -6,3 +6,5 @@ node_modules/
 *.db-journal
 dist/
 .DS_Store
+*.tsbuildinfo
+src/generated/

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "tcf-ee-task-1",
+    "sectionId": "tcf-expression-ecrite",
+    "order": 1,
+    "type": "message",
+    "durationMin": 10,
+    "minWords": 40,
+    "maxWords": 60,
+    "register": "either",
+    "cecrLevelRange": ["A1", "A2"],
+    "instructionsTemplate": "Rédigez un court message (SMS, courriel informel, mot laissé à quelqu'un) pour informer, demander ou réagir à une situation simple de la vie quotidienne.",
+    "evaluationCriteria": [
+      "clarté du message",
+      "adéquation à la situation",
+      "vocabulaire de base",
+      "correction grammaticale élémentaire"
+    ]
+  },
+  {
+    "id": "tcf-ee-task-2",
+    "sectionId": "tcf-expression-ecrite",
+    "order": 2,
+    "type": "narrative",
+    "durationMin": 20,
+    "minWords": 100,
+    "maxWords": 150,
+    "register": "either",
+    "cecrLevelRange": ["A2", "B2"],
+    "instructionsTemplate": "Racontez un événement ou une expérience personnelle, ou décrivez une situation, en respectant une trame chronologique claire (billet de blog, récit, description).",
+    "evaluationCriteria": [
+      "organisation chronologique",
+      "richesse descriptive",
+      "cohérence du récit",
+      "correction grammaticale",
+      "variété lexicale"
+    ]
+  },
+  {
+    "id": "tcf-ee-task-3",
+    "sectionId": "tcf-expression-ecrite",
+    "order": 3,
+    "type": "argumentative_synthesis",
+    "durationMin": 30,
+    "minWords": 120,
+    "maxWords": 190,
+    "register": "either",
+    "cecrLevelRange": ["B1", "C1"],
+    "instructionsTemplate": "Faites une brève synthèse des points de vue présentés dans les deux documents fournis, puis exprimez et justifiez votre propre opinion sur le sujet.",
+    "evaluationCriteria": [
+      "qualité de la synthèse",
+      "équilibre entre les points de vue présentés",
+      "argumentation personnelle",
+      "cohérence et cohésion",
+      "richesse lexicale et grammaticale"
+    ]
+  }
+]

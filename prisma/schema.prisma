@@ -1,0 +1,114 @@
+// Prisma schema — user-data layer only.
+// Static content (ExamDefinition, ExamSection, TaskTemplate, PromptItem, MCQQuestion,
+// CLBConversionTable) lives as versioned JSON under /content — see docs/data-schema.md.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(uuid())
+  displayName    String?
+  createdAt      DateTime @default(now())
+  targetExam     String? // "TEF" | "TCF" | "both"
+  targetNclcGoal Int?
+
+  examAttempts ExamAttempt[]
+
+  @@map("users")
+}
+
+enum AttemptStatus {
+  in_progress
+  completed
+  abandoned
+}
+
+model ExamAttempt {
+  id                  String        @id @default(uuid())
+  userId              String
+  user                User          @relation(fields: [userId], references: [id])
+  examId              String // "tef-canada" | "tcf-canada" — references content JSON
+  startedAt           DateTime      @default(now())
+  finishedAt          DateTime?
+  status              AttemptStatus @default(in_progress)
+  overallEstimatedNclc Float?
+
+  sectionAttempts SectionAttempt[]
+
+  @@map("exam_attempts")
+}
+
+model SectionAttempt {
+  id            String    @id @default(uuid())
+  examAttemptId String
+  examAttempt   ExamAttempt @relation(fields: [examAttemptId], references: [id])
+  sectionId     String // references ExamSection.id in content JSON
+  startedAt     DateTime  @default(now())
+  finishedAt    DateTime?
+  sectionEstimatedNclc Float?
+
+  taskSubmissions TaskSubmission[]
+
+  @@map("section_attempts")
+}
+
+model TaskSubmission {
+  id               String   @id @default(uuid())
+  sectionAttemptId String
+  sectionAttempt   SectionAttempt @relation(fields: [sectionAttemptId], references: [id])
+  taskTemplateId   String // references TaskTemplate.id in content JSON
+  promptItemId     String? // references PromptItem.id in content JSON
+
+  textResponse String?
+  wordCount    Int?
+  timeSpentSeconds Int
+  wordCountMet Boolean
+  submittedAt  DateTime @default(now())
+
+  scoringResult ScoringResult?
+
+  @@map("task_submissions")
+}
+
+model ScoringResult {
+  id               String   @id @default(uuid())
+  taskSubmissionId String   @unique
+  taskSubmission   TaskSubmission @relation(fields: [taskSubmissionId], references: [id])
+
+  method    String // "ai_estimate" | "self_checklist" | "mcq_auto"
+  modelUsed String?
+
+  linguisticScore     Float
+  pragmaticScore      Float
+  sociolinguisticScore Float?
+
+  estimatedNclc Float
+  confidence    String // "low" | "medium" | "high"
+  feedbackText  String
+  strengthsHighlighted    String // JSON-encoded string[]
+  improvementAreas        String // JSON-encoded string[]
+
+  officialDisclaimer String
+  scoredAt           DateTime @default(now())
+
+  @@map("scoring_results")
+}
+
+model ContentContribution {
+  id                 String    @id @default(uuid())
+  contributorHandle  String?
+  pullRequestUrl     String?
+  itemType           String // "PromptItem" | "MCQQuestion"
+  itemId             String
+  reviewedBy         String?
+  reviewedAt         DateTime?
+  licenseAcknowledged Boolean  @default(false)
+
+  @@map("content_contributions")
+}

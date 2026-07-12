@@ -1,0 +1,12 @@
+{
+  "id": "tcf-expression-ecrite",
+  "examId": "tcf-canada",
+  "type": "expression_ecrite",
+  "durationMin": 60,
+  "taskTemplateIds": ["tcf-ee-task-1", "tcf-ee-task-2", "tcf-ee-task-3"],
+  "allowBacktrack": false,
+  "toolsAllowed": {
+    "dictionary": false,
+    "spellcheck": false
+  }
+}
