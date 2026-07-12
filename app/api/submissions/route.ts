@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getTaskTemplate, getPromptItem, getTaskTemplatesForSection } from "@/lib/content";
-import { scoreWritingTask, SCORING_MODEL, OFFICIAL_DISCLAIMER } from "@/lib/scoring";
+import { scoreWritingTask, SCORING_MODEL, OFFICIAL_DISCLAIMER } from "@/lib/ai";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();

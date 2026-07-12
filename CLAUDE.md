@@ -21,7 +21,7 @@ Code is MIT licensed. Content (prompts, questions) is CC-BY-SA, versioned separa
 - **UI**: React, Tailwind
 - **Content data**: static JSON files under `/content`, no database
 - **User data**: Prisma + SQLite in dev / Postgres in production
-- **Writing scoring**: call to the Anthropic API (Claude) with an explicit scoring rubric in the system prompt
+- **Writing scoring**: pluggable AI provider (`src/lib/ai`), selected via `AI_PROVIDER` env var (`anthropic` | `gemini`), each sending the same explicit scoring rubric and returning structured JSON
 
 ## Data architecture
 

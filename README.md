@@ -20,20 +20,33 @@ Free, realistic practice tools for TEF/TCF are scarce, especially in a digital f
 
 ## Stack
 
-Next.js · TypeScript · Prisma · Anthropic API (Claude)
+Next.js · TypeScript · Prisma · pluggable AI scoring (Anthropic Claude or Google Gemini)
 
 ## Getting started
 
 ```bash
 npm install
-cp .env.example .env.local   # then add a real ANTHROPIC_API_KEY
+cp .env.example .env.local   # then set AI_PROVIDER and the matching API key
 npx prisma db push           # creates the local SQLite dev.db
 npm run dev
 ```
 
 Open http://localhost:3000, pick an exam and target level, and complete the writing
-section. Scoring calls the Anthropic API, so a valid `ANTHROPIC_API_KEY` in
-`.env.local` is required for the results step to work.
+section.
+
+### Choosing an AI provider
+
+Scoring goes through a pluggable provider (`src/lib/ai`), picked via the `AI_PROVIDER`
+env var:
+
+| `AI_PROVIDER` | Needs | Notes |
+| --- | --- | --- |
+| `anthropic` (default) | `ANTHROPIC_API_KEY` | `ANTHROPIC_SCORING_MODEL` optional, defaults to `claude-opus-4-8` |
+| `gemini` | `GEMINI_API_KEY` | Free tier via [Google AI Studio](https://aistudio.google.com/apikey). `GEMINI_SCORING_MODEL` optional, defaults to `gemini-flash-latest` (an auto-updating alias, since Google retires dated model names quickly) |
+
+Only the selected provider's key is required. Adding another provider means
+implementing the small `ScoringProvider` interface in `src/lib/ai/` and
+registering it in `src/lib/ai/index.ts`.
 
 ## Contributing
 
