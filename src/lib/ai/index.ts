@@ -2,12 +2,14 @@ import type { TaskTemplate, PromptItem } from "../content-types";
 import { OFFICIAL_DISCLAIMER } from "../content-types";
 import { anthropicProvider } from "./anthropic-provider";
 import { geminiProvider } from "./gemini-provider";
+import { ollamaProvider } from "./ollama-provider";
 import { buildScoringPrompt } from "./prompt";
 import type { ScoringOutput, ScoringProvider } from "./types";
 
 const PROVIDERS: Record<string, ScoringProvider> = {
   anthropic: anthropicProvider,
   gemini: geminiProvider,
+  ollama: ollamaProvider,
 };
 
 const activeProviderId = process.env.AI_PROVIDER ?? "anthropic";

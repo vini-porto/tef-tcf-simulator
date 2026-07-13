@@ -43,6 +43,7 @@ env var:
 | --- | --- | --- |
 | `anthropic` (default) | `ANTHROPIC_API_KEY` | `ANTHROPIC_SCORING_MODEL` optional, defaults to `claude-opus-4-8` |
 | `gemini` | `GEMINI_API_KEY` | Free tier via [Google AI Studio](https://aistudio.google.com/apikey). `GEMINI_SCORING_MODEL` optional, defaults to `gemini-flash-latest` (an auto-updating alias, since Google retires dated model names quickly) |
+| `ollama` | A running [Ollama](https://ollama.com) instance | No API key, runs fully locally/offline. `OLLAMA_BASE_URL` optional, defaults to `http://localhost:11434`. `OLLAMA_SCORING_MODEL` optional, defaults to `llama3.1` — pull it first with `ollama pull llama3.1`. Use a model that supports structured JSON output for reliable scoring. |
 
 Only the selected provider's key is required. Adding another provider means
 implementing the small `ScoringProvider` interface in `src/lib/ai/` and
