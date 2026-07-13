@@ -17,6 +17,7 @@
     "@google/genai": "^2.11.0",
     "@prisma/client": "6.19.3",
     "next": "^15.5.20",
+    "openai": "^6.46.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },

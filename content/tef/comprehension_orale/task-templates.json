@@ -1,0 +1,80 @@
+[
+  {
+    "id": "tef-co-task-1",
+    "sectionId": "tef-comprehension-orale",
+    "order": 1,
+    "type": "listening_mcq",
+    "durationMin": 1,
+    "minWords": 0,
+    "maxWords": 0,
+    "register": "either",
+    "cecrLevelRange": ["A1", "A2"],
+    "instructionsTemplate": "Écoutez l'enregistrement (une seule écoute) puis répondez à la question en choisissant la bonne réponse parmi les propositions.",
+    "evaluationCriteria": ["compréhension globale", "identification d'une information simple"]
+  },
+  {
+    "id": "tef-co-task-2",
+    "sectionId": "tef-comprehension-orale",
+    "order": 2,
+    "type": "listening_mcq",
+    "durationMin": 1,
+    "minWords": 0,
+    "maxWords": 0,
+    "register": "either",
+    "cecrLevelRange": ["A1", "B1"],
+    "instructionsTemplate": "Écoutez l'enregistrement (une seule écoute) puis répondez à la question en choisissant la bonne réponse parmi les propositions.",
+    "evaluationCriteria": ["compréhension globale", "identification d'informations factuelles"]
+  },
+  {
+    "id": "tef-co-task-3",
+    "sectionId": "tef-comprehension-orale",
+    "order": 3,
+    "type": "listening_mcq",
+    "durationMin": 1,
+    "minWords": 0,
+    "maxWords": 0,
+    "register": "either",
+    "cecrLevelRange": ["A2", "B1"],
+    "instructionsTemplate": "Écoutez l'enregistrement (une seule écoute) puis répondez à la question en choisissant la bonne réponse parmi les propositions.",
+    "evaluationCriteria": ["compréhension globale", "identification d'informations factuelles"]
+  },
+  {
+    "id": "tef-co-task-4",
+    "sectionId": "tef-comprehension-orale",
+    "order": 4,
+    "type": "listening_mcq",
+    "durationMin": 1,
+    "minWords": 0,
+    "maxWords": 0,
+    "register": "either",
+    "cecrLevelRange": ["B1", "B2"],
+    "instructionsTemplate": "Écoutez l'enregistrement (une seule écoute) puis répondez à la question en choisissant la bonne réponse parmi les propositions.",
+    "evaluationCriteria": ["compréhension détaillée", "identification de l'intention des locuteurs"]
+  },
+  {
+    "id": "tef-co-task-5",
+    "sectionId": "tef-comprehension-orale",
+    "order": 5,
+    "type": "listening_mcq",
+    "durationMin": 1,
+    "minWords": 0,
+    "maxWords": 0,
+    "register": "either",
+    "cecrLevelRange": ["B1", "C1"],
+    "instructionsTemplate": "Écoutez l'enregistrement (une seule écoute) puis répondez à la question en choisissant la bonne réponse parmi les propositions.",
+    "evaluationCriteria": ["compréhension détaillée", "inférence implicite"]
+  },
+  {
+    "id": "tef-co-task-6",
+    "sectionId": "tef-comprehension-orale",
+    "order": 6,
+    "type": "listening_mcq",
+    "durationMin": 1,
+    "minWords": 0,
+    "maxWords": 0,
+    "register": "either",
+    "cecrLevelRange": ["B2", "C1"],
+    "instructionsTemplate": "Écoutez l'enregistrement (une seule écoute) puis répondez à la question en choisissant la bonne réponse parmi les propositions.",
+    "evaluationCriteria": ["compréhension fine", "identification d'un point de vue nuancé"]
+  }
+]

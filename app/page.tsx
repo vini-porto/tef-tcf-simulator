@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { CECR_LEVELS } from "@/lib/content-types";
-import { getAnonUserId, saveAttemptState } from "@/lib/client-state";
+import {
+  getAnonUserId,
+  hasSeenWalkthrough,
+  markWalkthroughSeen,
+  saveAttemptState,
+} from "@/lib/client-state";
+import { WalkthroughModal } from "@/components/WalkthroughModal";
 
 const EXAMS = [
   { id: "tef-canada", label: "TEF Canada", description: "2 tâches — message court (20 min) + essai argumentatif (40 min)" },
@@ -16,8 +22,24 @@ export default function HomePage() {
   const [targetLevel, setTargetLevel] = useState<string>("B1");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showWalkthrough, setShowWalkthrough] = useState(false);
+  const selectedExam = EXAMS.find((exam) => exam.id === examId) ?? EXAMS[0];
 
-  async function handleStart() {
+  function handleStartClick() {
+    if (hasSeenWalkthrough()) {
+      void startAttempt();
+    } else {
+      setShowWalkthrough(true);
+    }
+  }
+
+  function handleWalkthroughChoice() {
+    markWalkthroughSeen();
+    setShowWalkthrough(false);
+    void startAttempt();
+  }
+
+  async function startAttempt() {
     setLoading(true);
     setError(null);
     try {
@@ -114,12 +136,22 @@ export default function HomePage() {
 
       <button
         type="button"
-        onClick={handleStart}
+        onClick={handleStartClick}
         disabled={loading}
         className="rounded-md bg-slate-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-slate-700 disabled:opacity-50"
       >
         {loading ? "Préparation…" : "Commencer la simulation"}
       </button>
+
+      {showWalkthrough && (
+        <WalkthroughModal
+          examLabel={selectedExam.label}
+          examDescription={selectedExam.description}
+          loading={loading}
+          onStart={handleWalkthroughChoice}
+          onSkip={handleWalkthroughChoice}
+        />
+      )}
 
       <p className="text-xs text-slate-400">
         Simulation non officielle, à visée d&rsquo;entraînement uniquement. Aucune

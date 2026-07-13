@@ -1,0 +1,19 @@
+{
+  "id": "tef-comprehension-orale",
+  "examId": "tef-canada",
+  "type": "comprehension_orale",
+  "durationMin": 6,
+  "taskTemplateIds": [
+    "tef-co-task-1",
+    "tef-co-task-2",
+    "tef-co-task-3",
+    "tef-co-task-4",
+    "tef-co-task-5",
+    "tef-co-task-6"
+  ],
+  "allowBacktrack": false,
+  "toolsAllowed": {
+    "dictionary": false,
+    "spellcheck": false
+  }
+}

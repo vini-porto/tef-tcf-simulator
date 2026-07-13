@@ -13,6 +13,16 @@ export function getAnonUserId(): string {
   return id;
 }
 
+const WALKTHROUGH_SEEN_KEY = "tef-tcf-walkthrough-seen";
+
+export function hasSeenWalkthrough(): boolean {
+  return localStorage.getItem(WALKTHROUGH_SEEN_KEY) === "true";
+}
+
+export function markWalkthroughSeen(): void {
+  localStorage.setItem(WALKTHROUGH_SEEN_KEY, "true");
+}
+
 export interface AttemptState {
   attemptId: string;
   sectionAttemptId: string;

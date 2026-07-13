@@ -21,7 +21,7 @@ Code is MIT licensed. Content (prompts, questions) is CC-BY-SA, versioned separa
 - **UI**: React, Tailwind
 - **Content data**: static JSON files under `/content`, no database
 - **User data**: Prisma + SQLite in dev / Postgres in production
-- **Writing scoring**: pluggable AI provider (`src/lib/ai`), selected via `AI_PROVIDER` env var (`anthropic` | `gemini`), each sending the same explicit scoring rubric and returning structured JSON
+- **Writing scoring**: pluggable AI provider (`src/lib/ai`), selected via `AI_PROVIDER` env var (`anthropic` | `gemini` | `ollama` | `openai`), each sending the same explicit scoring rubric and returning structured JSON. `ollama` runs fully locally (no API key, no data leaves the machine) for users who prefer not to send submissions to a third-party API.
 
 ## Data architecture
 
@@ -29,6 +29,7 @@ The full data schema lives in [`docs/data-schema.md`](./docs/data-schema.md). Re
 
 - **Static content** (`ExamDefinition`, `ExamSection`, `TaskTemplate`, `PromptItem`, `MCQQuestion`, `CLBConversionTable`) → `.json` files under `/content/{examType}/{sectionType}/`, versioned in git.
 - **User data** (`User`, `ExamAttempt`, `SectionAttempt`, `TaskSubmission`, `ScoringResult`, `ContentContribution`) → Prisma tables.
+- **Local-only client state** (anonymous user id, per-attempt progress, one-time UI flags like "has seen the onboarding walkthrough") → browser `localStorage`/`sessionStorage` via `src/lib/client-state.ts`, never the DB. This keeps Phase 1 login-free per the "no full user accounts yet" scope below; prefer this pattern over a Prisma migration for anything that's purely a per-browser UX flag.
 
 ## Structural difference TEF vs TCF (critical for the engine)
 
@@ -46,6 +47,7 @@ Build **only** the writing section, for both exams, with:
 - [ ] Submission creates a `TaskSubmission`
 - [ ] Call to the Claude API to generate a `ScoringResult` (linguistic/pragmatic/sociolinguistic subscores + estimated NCLC + qualitative feedback)
 - [ ] Results screen with visible disclaimer
+- [ ] Optional first-time walkthrough explaining the exam format, shown once before a user's first attempt, skippable
 
 **Out of scope for now** (future phases): listening/reading comprehension (MCQ), speaking (audio), full user accounts, progress history.
 

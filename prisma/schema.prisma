@@ -67,9 +67,13 @@ model TaskSubmission {
 
   textResponse String?
   wordCount    Int?
+  wordCountMet Boolean?
+
+  mcqQuestionId   String? // references MCQQuestion.id in content JSON
+  selectedChoiceId String? // references MCQChoice.id within that question
+
   timeSpentSeconds Int
-  wordCountMet Boolean
-  submittedAt  DateTime @default(now())
+  submittedAt      DateTime @default(now())
 
   scoringResult ScoringResult?
 
@@ -84,11 +88,12 @@ model ScoringResult {
   method    String // "ai_estimate" | "self_checklist" | "mcq_auto"
   modelUsed String?
 
-  linguisticScore     Float
-  pragmaticScore      Float
+  linguisticScore     Float? // not applicable to mcq_auto
+  pragmaticScore      Float? // not applicable to mcq_auto
   sociolinguisticScore Float?
+  isCorrect            Boolean? // mcq_auto only
 
-  estimatedNclc Float
+  estimatedNclc Float? // per-task NCLC doesn't apply to mcq_auto; section-level estimate lives on SectionAttempt
   confidence    String // "low" | "medium" | "high"
   feedbackText  String
   strengthsHighlighted    String // JSON-encoded string[]

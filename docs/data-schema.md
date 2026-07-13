@@ -215,15 +215,20 @@ interface TaskSubmission {
   id: string;
   sectionAttemptId: SectionAttempt["id"];
   taskTemplateId: TaskTemplate["id"];
-  promptItemId?: PromptItem["id"];   // null for MCQ tasks
-  mcqAnswers?: { questionId: string; selectedChoiceId: string }[];
+  promptItemId?: PromptItem["id"];   // writing tasks only
+
+  // MCQ tasks (comprehension_orale / comprehension_ecrite). Phase 2 draws exactly
+  // one MCQQuestion per TaskTemplate (mirrors how one PromptItem is drawn per
+  // writing TaskTemplate), so this is a single answer, not an array.
+  mcqQuestionId?: MCQQuestion["id"];
+  selectedChoiceId?: MCQChoice["id"];
 
   // fields specific to writing/speaking expression
   textResponse?: string;
   wordCount?: number;
   audioResponseUrl?: string;         // phase 3 (speaking)
   timeSpentSeconds: number;
-  wordCountMet: boolean;             // if the minimum wasn't reached → "A1 not attained"
+  wordCountMet?: boolean;            // writing only; if the minimum wasn't reached → penalized
   submittedAt: string;
 
   scoringResultId?: ScoringResult["id"];
@@ -241,14 +246,19 @@ interface ScoringResult {
   method: "ai_estimate" | "self_checklist" | "mcq_auto";
   modelUsed?: string;                // e.g. "claude-sonnet-5", null if not AI
 
-  subscores: {
+  // ai_estimate (writing) only — not applicable to mcq_auto
+  subscores?: {
     linguistic: number;              // vocabulary, grammar, spelling (0-10)
     pragmatic: number;               // coherence, task adequacy (0-10)
     sociolinguistic?: number;        // tu/vous register, social adequacy (0-10)
   };
+  isCorrect?: boolean;                // mcq_auto only
 
-  estimatedNclc: number;
-  confidence: "low" | "medium" | "high"; // the AI should self-assess this
+  // Per-task NCLC only applies to ai_estimate; a single MCQ answer doesn't map to
+  // an NCLC on its own — mcq_auto's real result is SectionAttempt.sectionEstimatedNclc,
+  // aggregated from the section's correct-answer count via CLBConversionTable.
+  estimatedNclc?: number;
+  confidence: "low" | "medium" | "high"; // the AI should self-assess this; mcq_auto uses "high"
   feedbackText: string;              // qualitative feedback in natural language
   strengthsHighlighted: string[];
   improvementAreas: string[];

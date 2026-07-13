@@ -37,7 +37,8 @@ export type TaskType =
   | "message"
   | "narrative"
   | "argumentative_synthesis"
-  | "argumentative_essay";
+  | "argumentative_essay"
+  | "listening_mcq";
 
 export type Register = "tu" | "vous" | "either";
 
@@ -79,12 +80,23 @@ export interface MCQChoice {
   text: string;
 }
 
+// Authoring-only: the audio generation script (scripts/generate_audio.py) reads
+// this to synthesize each MCQQuestion's dialogue with pocket-tts, one voice per
+// speaker. Not consumed at runtime — stimulusContent (the resulting audio path)
+// is what the app actually plays.
+export interface DialogueTurn {
+  speaker: string; // display label, e.g. "Client"
+  voice: string; // pocket-tts voice id, e.g. "estelle"
+  text: string; // French line
+}
+
 export interface MCQQuestion {
   id: string;
   taskTemplateId: string;
   cecrLevel: string;
   stimulusType: "text" | "audio";
-  stimulusContent: string;
+  stimulusContent: string; // text, or path (under /public) of the generated audio
+  dialogueScript?: DialogueTurn[]; // present when stimulusType is "audio"
   questionText: string;
   choices: MCQChoice[];
   correctChoiceId: string;
