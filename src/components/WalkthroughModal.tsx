@@ -15,7 +15,7 @@ const STEPS = [
   {
     title: "Bienvenue",
     body: (examLabel: string) =>
-      `Ce simulateur vous entraîne à l'épreuve d'expression écrite du ${examLabel}, dans des conditions proches de l'examen réel : temps limité, pas de retour en arrière, et correction automatique par IA selon les critères officiels.`,
+      `Ce simulateur vous entraîne aux épreuves de compréhension orale et d'expression écrite du ${examLabel}, dans des conditions proches de l'examen réel : temps limité, pas de retour en arrière, correction automatique pour la compréhension orale et par IA pour l'expression écrite.`,
   },
   {
     title: "Déroulement",
@@ -25,7 +25,7 @@ const STEPS = [
   {
     title: "Correction et résultat",
     body: () =>
-      `À la fin, un modèle d'intelligence artificielle évalue votre texte selon les critères linguistique, pragmatique et sociolinguistique utilisés dans l'examen réel, puis vous propose un niveau NCLC/CLB estimé accompagné de retours qualitatifs. ${OFFICIAL_DISCLAIMER}`,
+      `Vos réponses de compréhension orale sont corrigées automatiquement. Pour l'expression écrite, un modèle d'intelligence artificielle évalue votre texte selon les critères linguistique, pragmatique et sociolinguistique utilisés dans l'examen réel. À la fin, vous obtenez un niveau NCLC/CLB estimé par section, accompagné de retours qualitatifs. ${OFFICIAL_DISCLAIMER}`,
   },
 ];
 

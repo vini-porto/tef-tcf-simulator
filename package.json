@@ -10,7 +10,8 @@
     "lint": "next lint",
     "postinstall": "prisma generate",
     "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "generate:audio": "python3 scripts/generate_audio.py"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.111.0",

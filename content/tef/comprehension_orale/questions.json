@@ -1,0 +1,133 @@
+[
+  {
+    "id": "tef-co-q1",
+    "taskTemplateId": "tef-co-task-1",
+    "cecrLevel": "A1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tef/comprehension_orale/tef-co-q1.wav",
+    "dialogueScript": [
+      { "speaker": "Le vendeur", "voice": "jean", "text": "Bonjour madame, qu'est-ce que je vous sers aujourd'hui ?" },
+      { "speaker": "La cliente", "voice": "estelle", "text": "Bonjour. Je voudrais deux croissants et une baguette, s'il vous plaît." },
+      { "speaker": "Le vendeur", "voice": "jean", "text": "Très bien, voilà. Ça fera quatre euros cinquante." }
+    ],
+    "questionText": "Qu'est-ce que la cliente achète ?",
+    "choices": [
+      { "id": "a", "text": "Deux croissants et une baguette" },
+      { "id": "b", "text": "Un gâteau et du pain" },
+      { "id": "c", "text": "Quatre baguettes" }
+    ],
+    "correctChoiceId": "a",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-co-q2",
+    "taskTemplateId": "tef-co-task-2",
+    "cecrLevel": "A2",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tef/comprehension_orale/tef-co-q2.wav",
+    "dialogueScript": [
+      { "speaker": "La secrétaire", "voice": "estelle", "text": "Cabinet médical, bonjour." },
+      { "speaker": "Le patient", "voice": "charles", "text": "Bonjour, j'aimerais prendre un rendez-vous avec le docteur Mercier, si possible cette semaine." },
+      { "speaker": "La secrétaire", "voice": "estelle", "text": "Je peux vous proposer jeudi matin à neuf heures, ça vous convient ?" },
+      { "speaker": "Le patient", "voice": "charles", "text": "Oui, parfait, jeudi neuf heures, merci beaucoup." }
+    ],
+    "questionText": "Quand est le rendez-vous du patient ?",
+    "choices": [
+      { "id": "a", "text": "Mercredi à neuf heures" },
+      { "id": "b", "text": "Jeudi à neuf heures" },
+      { "id": "c", "text": "Jeudi à midi" }
+    ],
+    "correctChoiceId": "b",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-co-q3",
+    "taskTemplateId": "tef-co-task-3",
+    "cecrLevel": "B1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tef/comprehension_orale/tef-co-q3.wav",
+    "dialogueScript": [
+      { "speaker": "La locataire potentielle", "voice": "estelle", "text": "Bonjour, je vous appelle au sujet de l'appartement à louer sur l'avenue des Érables. Est-il toujours disponible ?" },
+      { "speaker": "Le propriétaire", "voice": "javert", "text": "Oui, il est libre à partir du premier du mois prochain. C'est un deux-pièces au troisième étage, sans ascenseur." },
+      { "speaker": "La locataire potentielle", "voice": "estelle", "text": "D'accord. Et le loyer comprend-il les charges ?" },
+      { "speaker": "Le propriétaire", "voice": "javert", "text": "Non, les charges sont en plus, environ soixante-quinze dollars par mois pour le chauffage et l'eau." }
+    ],
+    "questionText": "Que faut-il payer en plus du loyer ?",
+    "choices": [
+      { "id": "a", "text": "Rien, tout est inclus" },
+      { "id": "b", "text": "Le chauffage et l'eau" },
+      { "id": "c", "text": "L'ascenseur" }
+    ],
+    "correctChoiceId": "b",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-co-q4",
+    "taskTemplateId": "tef-co-task-4",
+    "cecrLevel": "B1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tef/comprehension_orale/tef-co-q4.wav",
+    "dialogueScript": [
+      { "speaker": "Amina", "voice": "estelle", "text": "Dis, tu peux déplacer notre réunion de lundi ? Je suis en formation toute la matinée." },
+      { "speaker": "Marc", "voice": "marius", "text": "Pas de souci. On peut la faire mardi après-midi à la place, vers quatorze heures ?" },
+      { "speaker": "Amina", "voice": "estelle", "text": "Ça marche pour moi. Je préviens les autres membres de l'équipe." },
+      { "speaker": "Marc", "voice": "marius", "text": "Parfait, j'envoie l'invitation mise à jour tout de suite." }
+    ],
+    "questionText": "Pourquoi Amina veut-elle changer la réunion ?",
+    "choices": [
+      { "id": "a", "text": "Elle est en formation lundi matin" },
+      { "id": "b", "text": "Elle est en vacances" },
+      { "id": "c", "text": "Elle n'aime pas le mardi" }
+    ],
+    "correctChoiceId": "a",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-co-q5",
+    "taskTemplateId": "tef-co-task-5",
+    "cecrLevel": "B2",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tef/comprehension_orale/tef-co-q5.wav",
+    "dialogueScript": [
+      { "speaker": "L'agent", "voice": "george", "text": "Pour finaliser votre dossier d'immigration, il nous manque encore la preuve de vos fonds et une évaluation comparative de vos diplômes." },
+      { "speaker": "Le candidat", "voice": "estelle", "text": "J'ai déjà envoyé mon relevé bancaire la semaine dernière. L'évaluation des diplômes, en revanche, je ne l'ai pas encore commencée : c'est urgent ?" },
+      { "speaker": "L'agent", "voice": "george", "text": "Ce n'est pas urgent aujourd'hui, mais comptez plusieurs semaines de délai, donc mieux vaut vous y prendre dès maintenant pour ne pas retarder le dossier." },
+      { "speaker": "Le candidat", "voice": "estelle", "text": "D'accord, je vais faire la demande cette semaine alors." }
+    ],
+    "questionText": "Que doit encore faire le candidat sans tarder ?",
+    "choices": [
+      { "id": "a", "text": "Renvoyer son relevé bancaire" },
+      { "id": "b", "text": "Demander l'évaluation comparative de ses diplômes" },
+      { "id": "c", "text": "Annuler son dossier" }
+    ],
+    "correctChoiceId": "b",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tef-co-q6",
+    "taskTemplateId": "tef-co-task-6",
+    "cecrLevel": "C1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tef/comprehension_orale/tef-co-q6.wav",
+    "dialogueScript": [
+      { "speaker": "Sophie", "voice": "estelle", "text": "Franchement, je trouve que le télétravail généralisé a fini par isoler les équipes plus qu'autre chose. On a perdu quelque chose dans les échanges informels." },
+      { "speaker": "Karim", "voice": "cosette", "text": "Je comprends ce que tu veux dire, mais je nuancerais : ça dépend énormément de la façon dont l'équipe organise ses rituels. Chez nous, ça a plutôt renforcé l'autonomie de chacun." },
+      { "speaker": "Sophie", "voice": "estelle", "text": "Peut-être, mais je pense que ça favorise surtout ceux qui étaient déjà à l'aise pour travailler seuls, pas les nouveaux qui ont besoin d'être encadrés." },
+      { "speaker": "Karim", "voice": "cosette", "text": "Sur ce point-là, je te rejoins complètement : pour les nouveaux arrivants, un minimum de présentiel me semble indispensable." }
+    ],
+    "questionText": "Sur quel point Sophie et Karim finissent-ils par être d'accord ?",
+    "choices": [
+      { "id": "a", "text": "Le télétravail doit être totalement supprimé" },
+      { "id": "b", "text": "Les nouveaux employés ont besoin d'un minimum de présentiel" },
+      { "id": "c", "text": "Le télétravail ne pose aucun problème" }
+    ],
+    "correctChoiceId": "b",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  }
+]

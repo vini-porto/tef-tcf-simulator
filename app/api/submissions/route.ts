@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getTaskTemplate, getPromptItem, getTaskTemplatesForSection } from "@/lib/content";
+import { getTaskTemplate, getPromptItem } from "@/lib/content";
 import { scoreWritingTask, SCORING_MODEL, OFFICIAL_DISCLAIMER } from "@/lib/ai";
+import { finishTaskAndAdvance } from "@/lib/attempt-engine";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
@@ -84,29 +85,7 @@ export async function POST(request: NextRequest) {
     },
   });
 
-  const totalTasks = getTaskTemplatesForSection(sectionAttempt.sectionId).length;
-  const allSubmissions = await prisma.taskSubmission.findMany({
-    where: { sectionAttemptId },
-    include: { scoringResult: true },
-  });
-
-  let sectionFinished = false;
-  if (allSubmissions.length >= totalTasks && allSubmissions.every((s) => s.scoringResult)) {
-    sectionFinished = true;
-    const avgNclc =
-      allSubmissions.reduce((sum, s) => sum + (s.scoringResult?.estimatedNclc ?? 0), 0) /
-      allSubmissions.length;
-
-    await prisma.sectionAttempt.update({
-      where: { id: sectionAttemptId },
-      data: { finishedAt: new Date(), sectionEstimatedNclc: avgNclc },
-    });
-
-    await prisma.examAttempt.update({
-      where: { id: sectionAttempt.examAttemptId },
-      data: { finishedAt: new Date(), status: "completed", overallEstimatedNclc: avgNclc },
-    });
-  }
+  const { sectionFinished, nextSection } = await finishTaskAndAdvance(sectionAttemptId);
 
   return NextResponse.json({
     submissionId: submission.id,
@@ -122,5 +101,6 @@ export async function POST(request: NextRequest) {
       officialDisclaimer: OFFICIAL_DISCLAIMER,
     },
     sectionFinished,
+    nextSection,
   });
 }

@@ -1,0 +1,19 @@
+{
+  "id": "tcf-comprehension-orale",
+  "examId": "tcf-canada",
+  "type": "comprehension_orale",
+  "durationMin": 6,
+  "taskTemplateIds": [
+    "tcf-co-task-1",
+    "tcf-co-task-2",
+    "tcf-co-task-3",
+    "tcf-co-task-4",
+    "tcf-co-task-5",
+    "tcf-co-task-6"
+  ],
+  "allowBacktrack": false,
+  "toolsAllowed": {
+    "dictionary": false,
+    "spellcheck": false
+  }
+}

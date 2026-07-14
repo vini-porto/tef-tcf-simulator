@@ -17,10 +17,11 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![AI-assisted scoring](https://img.shields.io/badge/AI--assisted-scoring-6366F1)](#choosing-an-ai-provider)
 
-Timed, no-backtrack practice for the writing section · AI-assisted NCLC/CLB
-scoring · original content only, never real exam questions
+Timed, no-backtrack practice for listening comprehension and the writing
+section · auto-scored MCQ + AI-assisted NCLC/CLB scoring · original content
+only, never real exam questions
 
-[Quick Start](#quick-start) · [How It Works](#how-it-works) · [Choosing an AI Provider](#choosing-an-ai-provider) · [Contributing](#contributing)
+[Quick Start](#quick-start) · [How It Works](#how-it-works) · [Generating Listening Audio](#generating-listening-comprehension-audio) · [Choosing an AI Provider](#choosing-an-ai-provider) · [Contributing](#contributing)
 
 </div>
 
@@ -35,7 +36,8 @@ in an open, collaborative way — replicating the format, timing, and
 structure of the real exams as closely as possible, and estimating a level
 (NCLC/CLB) via AI-assisted scoring.
 
-**Status:** under development — Phase 1 (writing expression) in progress.
+**Status:** under development — Phase 1 (writing expression) shipped, Phase 2
+(listening comprehension) shipped, reading comprehension still pending.
 
 ## Quick Start
 
@@ -67,26 +69,59 @@ npm run dev
 ```
 
 Open **http://localhost:3000**, pick an exam and target level, and complete
-the writing section. First time through, you'll be offered a short walkthrough
-explaining how the simulation works — it's optional and only ever shown once
-per browser.
+the simulation — listening comprehension first, then the writing section,
+back-to-back, same order as the real exam. First time through, you'll be
+offered a short walkthrough explaining how the simulation works — it's
+optional and only ever shown once per browser.
+
+Listening audio isn't committed to the repo (see
+[below](#generating-listening-comprehension-audio)); without it, listening
+tasks will just show a broken audio player. Generate it locally first if you
+want to actually hear the dialogues.
 
 To stop the app, `Ctrl+C` in the terminal running `npm run dev` — that's it,
 nothing else to clean up (SQLite is a local file, no background services).
 
 ## How it works
 
-- Choose your exam (TEF or TCF) and take the writing section under simulated
-  conditions: timed, no dictionary, no going back once you move forward.
-- At the end, an AI model scores your writing based on the real evaluation
-  criteria (linguistic, pragmatic, sociolinguistic) and estimates your
-  NCLC/CLB level.
+- Choose your exam (TEF or TCF) and target level, then take the full
+  simulation under exam-like conditions: timed per task, no dictionary, no
+  going back once you move forward.
+- **Listening comprehension** comes first: 6 short French dialogues (each
+  with distinct synthesized voices per speaker), one multiple-choice
+  question each, scored automatically.
+- **Writing expression** comes next: an AI model scores your text based on
+  the real evaluation criteria (linguistic, pragmatic, sociolinguistic) and
+  estimates your NCLC/CLB level.
+- Results show a score per section plus a combined overall estimate.
 - **The score is an educational estimate, not an official evaluation.**
+
+## Generating listening-comprehension audio
+
+Listening dialogues are scripted in `content/{tef,tcf}/comprehension_orale/questions.json`
+(who says what, in which voice) but the `.wav` files themselves are **not**
+committed — they're generated locally with
+[pocket-tts](https://github.com/kyutai-labs/pocket-tts), a small CPU-only
+text-to-speech model, so the repo stays light and every learner gets freshly
+synthesized (but deterministic-content) audio.
+
+```bash
+python3 -m venv .venv && source .venv/bin/activate   # optional but recommended
+pip install pocket-tts scipy
+npm run generate:audio            # generates for both TEF and TCF
+npm run generate:audio -- --exam tef   # or just one exam
+npm run generate:audio -- --force      # regenerate even if files exist
+```
+
+Files land in `public/audio/{tef,tcf}/comprehension_orale/` (gitignored).
+The app runs fine without this step — you just won't hear anything until
+you generate the audio.
 
 ## Stack
 
 Next.js (App Router) · TypeScript · Tailwind · Prisma (SQLite in dev,
-Postgres in production) · pluggable AI scoring
+Postgres in production) · pluggable AI scoring · pocket-tts (local, on-demand
+listening audio)
 
 ## Choosing an AI provider
 

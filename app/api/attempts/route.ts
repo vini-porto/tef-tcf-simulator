@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { getExamDefinition, getWritingSectionForExam, getTaskTemplatesForSection } from "@/lib/content";
+import { getExamDefinition, getFirstSectionForExam, getSectionsForExam, getTaskTemplatesForSection } from "@/lib/content";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
@@ -22,15 +22,15 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Examen inconnu." }, { status: 404 });
   }
 
-  const section = getWritingSectionForExam(examId);
-  if (!section) {
+  const firstSection = getFirstSectionForExam(examId);
+  if (!firstSection) {
     return NextResponse.json(
-      { error: "Section d'expression écrite introuvable pour cet examen." },
+      { error: "Aucune section configurée pour cet examen." },
       { status: 404 },
     );
   }
 
-  const tasks = getTaskTemplatesForSection(section.id);
+  const tasks = getTaskTemplatesForSection(firstSection.id);
 
   await prisma.user.upsert({
     where: { id: userId },
@@ -43,14 +43,15 @@ export async function POST(request: NextRequest) {
   });
 
   const sectionAttempt = await prisma.sectionAttempt.create({
-    data: { examAttemptId: examAttempt.id, sectionId: section.id },
+    data: { examAttemptId: examAttempt.id, sectionId: firstSection.id },
   });
 
   return NextResponse.json({
     attemptId: examAttempt.id,
     sectionAttemptId: sectionAttempt.id,
     examId,
-    sectionId: section.id,
+    sectionId: firstSection.id,
+    sectionOrder: getSectionsForExam(examId).map((s) => s.id),
     targetLevel,
     tasks,
   });

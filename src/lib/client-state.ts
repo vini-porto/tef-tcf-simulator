@@ -1,6 +1,10 @@
 "use client";
 
-import type { PromptItem, TaskTemplate } from "./content-types";
+import type { MCQQuestion, PromptItem, TaskTemplate } from "./content-types";
+
+// Shape returned by GET /api/mcq — the answer key and authoring-only
+// dialogueScript are stripped server-side before reaching the client.
+export type PublicMcqQuestion = Omit<MCQQuestion, "correctChoiceId" | "dialogueScript">;
 
 const ANON_USER_KEY = "tef-tcf-anon-user-id";
 
@@ -25,13 +29,32 @@ export function markWalkthroughSeen(): void {
 
 export interface AttemptState {
   attemptId: string;
-  sectionAttemptId: string;
   examId: string;
   targetLevel: string;
+  sectionOrder: string[]; // all section ids for this exam, official order
+  currentSectionId: string;
+  // Everything below is scoped to currentSectionId and gets reset when
+  // advancing to the next section (see advanceToSection below).
+  sectionAttemptId: string;
   tasks: TaskTemplate[];
   prompts: Record<string, PromptItem>;
+  mcqQuestions: Record<string, PublicMcqQuestion>;
   completedTaskIds: string[];
   taskStartedAt: Record<string, number>;
+}
+
+export function advanceToSection(
+  state: AttemptState,
+  next: { sectionId: string; sectionAttemptId: string; tasks: TaskTemplate[] },
+): AttemptState {
+  return {
+    ...state,
+    currentSectionId: next.sectionId,
+    sectionAttemptId: next.sectionAttemptId,
+    tasks: next.tasks,
+    completedTaskIds: [],
+    taskStartedAt: {},
+  };
 }
 
 function storageKey(attemptId: string): string {

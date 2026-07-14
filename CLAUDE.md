@@ -30,31 +30,47 @@ The full data schema lives in [`docs/data-schema.md`](./docs/data-schema.md). Re
 - **Static content** (`ExamDefinition`, `ExamSection`, `TaskTemplate`, `PromptItem`, `MCQQuestion`, `CLBConversionTable`) → `.json` files under `/content/{examType}/{sectionType}/`, versioned in git.
 - **User data** (`User`, `ExamAttempt`, `SectionAttempt`, `TaskSubmission`, `ScoringResult`, `ContentContribution`) → Prisma tables.
 - **Local-only client state** (anonymous user id, per-attempt progress, one-time UI flags like "has seen the onboarding walkthrough") → browser `localStorage`/`sessionStorage` via `src/lib/client-state.ts`, never the DB. This keeps Phase 1 login-free per the "no full user accounts yet" scope below; prefer this pattern over a Prisma migration for anything that's purely a per-browser UX flag.
+- **Listening audio is generated on demand, never committed.** `content/{examType}/comprehension_orale/questions.json` stores each `MCQQuestion`'s `dialogueScript` (who says what, in which voice) as the versioned source of truth. Running `npm run generate:audio` (wraps `scripts/generate_audio.py`, uses [pocket-tts](https://github.com/kyutai-labs/pocket-tts)) synthesizes the actual `.wav` files into `public/audio/`, which is gitignored. The app and its content are fully valid without ever running that script — only playback needs the generated files. Don't commit anything under `public/audio/`.
+
+### Combined multi-section exam attempt
+
+An `ExamAttempt` now runs every section listed in `ExamDefinition.sections`, in order, back-to-back within one attempt — not a single isolated section. `SectionAttempt` rows are created lazily (one per section, when the learner reaches it), same no-backtrack-friendly pattern the per-task flow already used in Phase 1. `src/lib/attempt-engine.ts`'s `finishTaskAndAdvance(sectionAttemptId)` is the single place that decides whether a section is complete, computes its `sectionEstimatedNclc`, and returns the next section (or marks the whole `ExamAttempt` `completed` with an `overallEstimatedNclc` once the last section finishes). Both submission endpoints (`app/api/submissions`, `app/api/mcq-submissions`) call into it — don't duplicate that logic inline in a route handler.
+
+Routing reflects this: task pages live at `app/attempt/[attemptId]/section/[sectionId]/task/[order]/page.tsx`, so task numbering resets per section instead of being a flat global counter. `src/lib/client-state.ts`'s `AttemptState` carries `sectionOrder`/`currentSectionId` plus per-section-scoped fields (`tasks`, `completedTaskIds`, `taskStartedAt`, etc.) that get reset via `advanceToSection()` when the client moves to the next section.
 
 ## Structural difference TEF vs TCF (critical for the engine)
 
 - **TCF Canada — Expression Écrite**: 3 tasks, 60 min total (short message ~10min / narrative ~20min / synthesis+opinion ~30min)
 - **TEF Canada — Expression Écrite**: 2 tasks, 60 min total (short message ~20min / argumentative essay ~40min)
+- **Compréhension Orale (TEF + TCF)**: 6 `listening_mcq` tasks, one `MCQQuestion` (2+ speaker dialogue, multiple choice) drawn per task, auto-scored (no AI call) via `method: "mcq_auto"`, correct-count banded to NCLC through `CLBConversionTable`. Both exams open with this section, followed by Expression Écrite — see `ExamDefinition.sections` order.
 
-The simulation engine must be **configurable per `TaskTemplate`**, never hardcoded to a fixed number of tasks. TEF and TCF share ~80% of the logic (timer, editor, word counter, no-backtrack navigation); the difference lives entirely in the JSON config.
+The simulation engine must be **configurable per `TaskTemplate`**, never hardcoded to a fixed number of tasks. TEF and TCF share ~80% of the logic (timer, no-backtrack navigation); task-type-specific rendering (writing editor+word counter vs. listening audio+choices) lives in separate view components (`src/components/WritingTaskView.tsx`, `src/components/ListeningTaskView.tsx`) behind a shared chrome — the difference otherwise lives entirely in the JSON config.
 
 ## MVP scope (Phase 1)
 
 Build **only** the writing section, for both exams, with:
-- [ ] Exam selection (TEF or TCF) and target level
-- [ ] Draw an approved `PromptItem` matching the target level
-- [ ] Editor with non-pausable timer, word counter, no backward navigation
-- [ ] Submission creates a `TaskSubmission`
-- [ ] Call to the Claude API to generate a `ScoringResult` (linguistic/pragmatic/sociolinguistic subscores + estimated NCLC + qualitative feedback)
-- [ ] Results screen with visible disclaimer
-- [ ] Optional first-time walkthrough explaining the exam format, shown once before a user's first attempt, skippable
+- [x] Exam selection (TEF or TCF) and target level
+- [x] Draw an approved `PromptItem` matching the target level
+- [x] Editor with non-pausable timer, word counter, no backward navigation
+- [x] Submission creates a `TaskSubmission`
+- [x] Call to the Claude API to generate a `ScoringResult` (linguistic/pragmatic/sociolinguistic subscores + estimated NCLC + qualitative feedback)
+- [x] Results screen with visible disclaimer
+- [x] Optional first-time walkthrough explaining the exam format, shown once before a user's first attempt, skippable
 
-**Out of scope for now** (future phases): listening/reading comprehension (MCQ), speaking (audio), full user accounts, progress history.
+## Phase 2 scope (listening comprehension)
+
+- [x] `listening_mcq` task type + `MCQQuestion`/`DialogueTurn` content types
+- [x] Original `comprehension_orale` content (6 questions each, TEF + TCF), audio generated on demand via pocket-tts, never committed
+- [x] Combined multi-section exam attempt (listening → writing, back-to-back, matching real exam order)
+- [x] Auto-scored MCQ submissions, per-section + overall NCLC estimates
+- [ ] Reading comprehension (`comprehension_ecrite`) — same MCQ engine, no audio, natural fast-follow
+
+**Out of scope for now** (future phase): speaking (audio recording + transcription + scoring), full user accounts, progress history.
 
 ## Roadmap
 
-1. **Phase 1** (current): writing expression, TEF + TCF, AI-assisted scoring
-2. **Phase 2**: listening/reading comprehension (multiple-choice question bank)
+1. **Phase 1**: writing expression, TEF + TCF, AI-assisted scoring — done
+2. **Phase 2** (current): listening comprehension shipped; reading comprehension still pending within this phase
 3. **Phase 3**: speaking expression (audio recording + transcription + scoring) — save for last, it's the most complex
 
 ## Conventions

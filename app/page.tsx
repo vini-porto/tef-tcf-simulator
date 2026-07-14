@@ -12,8 +12,18 @@ import {
 import { WalkthroughModal } from "@/components/WalkthroughModal";
 
 const EXAMS = [
-  { id: "tef-canada", label: "TEF Canada", description: "2 tâches — message court (20 min) + essai argumentatif (40 min)" },
-  { id: "tcf-canada", label: "TCF Canada", description: "3 tâches — message court (10 min) + récit (20 min) + synthèse et opinion (30 min)" },
+  {
+    id: "tef-canada",
+    label: "TEF Canada",
+    description:
+      "Compréhension orale (6 questions, ~6 min) puis expression écrite — message court (20 min) + essai argumentatif (40 min)",
+  },
+  {
+    id: "tcf-canada",
+    label: "TCF Canada",
+    description:
+      "Compréhension orale (6 questions, ~6 min) puis expression écrite — message court (10 min) + récit (20 min) + synthèse et opinion (30 min)",
+  },
 ];
 
 export default function HomePage() {
@@ -56,16 +66,19 @@ export default function HomePage() {
       const data = await res.json();
       saveAttemptState({
         attemptId: data.attemptId,
-        sectionAttemptId: data.sectionAttemptId,
         examId: data.examId,
         targetLevel: data.targetLevel,
+        sectionOrder: data.sectionOrder,
+        currentSectionId: data.sectionId,
+        sectionAttemptId: data.sectionAttemptId,
         tasks: data.tasks,
         prompts: {},
+        mcqQuestions: {},
         completedTaskIds: [],
         taskStartedAt: {},
       });
       const firstTask = data.tasks[0];
-      router.push(`/attempt/${data.attemptId}/task/${firstTask.order}`);
+      router.push(`/attempt/${data.attemptId}/section/${data.sectionId}/task/${firstTask.order}`);
     } catch (e) {
       setError(e instanceof Error ? e.message : "Erreur inconnue.");
       setLoading(false);
@@ -76,12 +89,13 @@ export default function HomePage() {
     <div className="space-y-8">
       <div>
         <h1 className="text-2xl font-semibold text-slate-900">
-          Simulateur TEF/TCF Canada — Expression écrite
+          Simulateur TEF/TCF Canada — Compréhension orale &amp; Expression écrite
         </h1>
         <p className="mt-2 text-sm text-slate-600">
           Choisissez votre examen et votre niveau cible pour démarrer une simulation
-          chronométrée, sans retour en arrière, fidèle au format réel. Un modèle IA
-          évaluera ensuite votre production selon les critères officiels.
+          chronométrée, sans retour en arrière, fidèle au format réel. La compréhension
+          orale est corrigée automatiquement ; un modèle IA évalue ensuite votre
+          expression écrite selon les critères officiels.
         </p>
       </div>
 

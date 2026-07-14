@@ -1,0 +1,133 @@
+[
+  {
+    "id": "tcf-co-q1",
+    "taskTemplateId": "tcf-co-task-1",
+    "cecrLevel": "A1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tcf/comprehension_orale/tcf-co-q1.wav",
+    "dialogueScript": [
+      { "speaker": "Le marchand", "voice": "jean", "text": "Bonjour ! Les pommes sont fraîches aujourd'hui, vous en voulez combien ?" },
+      { "speaker": "La cliente", "voice": "estelle", "text": "Bonjour, donnez-moi un kilo de pommes et trois bananes, s'il vous plaît." },
+      { "speaker": "Le marchand", "voice": "jean", "text": "Voilà. Ça fait cinq dollars vingt." }
+    ],
+    "questionText": "Qu'est-ce que la cliente achète ?",
+    "choices": [
+      { "id": "a", "text": "Des pommes et des bananes" },
+      { "id": "b", "text": "Des poires et du raisin" },
+      { "id": "c", "text": "Seulement des bananes" }
+    ],
+    "correctChoiceId": "a",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-co-q2",
+    "taskTemplateId": "tcf-co-task-2",
+    "cecrLevel": "A2",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tcf/comprehension_orale/tcf-co-q2.wav",
+    "dialogueScript": [
+      { "speaker": "Le réceptionniste", "voice": "charles", "text": "Hôtel Beau Séjour, bonjour." },
+      { "speaker": "Le client", "voice": "estelle", "text": "Bonjour, je voudrais réserver une chambre double pour ce week-end, du vendredi au dimanche." },
+      { "speaker": "Le réceptionniste", "voice": "charles", "text": "Très bien, il nous reste une chambre avec vue sur le jardin. C'est cent quarante dollars pour les deux nuits." },
+      { "speaker": "Le client", "voice": "estelle", "text": "Parfait, je la prends." }
+    ],
+    "questionText": "Pour combien de nuits le client réserve-t-il la chambre ?",
+    "choices": [
+      { "id": "a", "text": "Une nuit" },
+      { "id": "b", "text": "Deux nuits" },
+      { "id": "c", "text": "Trois nuits" }
+    ],
+    "correctChoiceId": "b",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-co-q3",
+    "taskTemplateId": "tcf-co-task-3",
+    "cecrLevel": "B1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tcf/comprehension_orale/tcf-co-q3.wav",
+    "dialogueScript": [
+      { "speaker": "Le client", "voice": "javert", "text": "Bonjour, j'appelle parce que ma commande devait arriver hier et je n'ai toujours rien reçu." },
+      { "speaker": "Le conseiller", "voice": "estelle", "text": "Je suis désolé pour ce retard. Je vérifie... En effet, le colis est bloqué au centre de tri depuis deux jours." },
+      { "speaker": "Le client", "voice": "javert", "text": "Et vous pouvez me dire quand je vais enfin le recevoir ?" },
+      { "speaker": "Le conseiller", "voice": "estelle", "text": "Il devrait être livré demain. Je vous envoie également un code de réduction pour nous excuser du désagrément." }
+    ],
+    "questionText": "Pourquoi le client appelle-t-il ?",
+    "choices": [
+      { "id": "a", "text": "Pour annuler sa commande" },
+      { "id": "b", "text": "Parce que sa commande n'est pas arrivée" },
+      { "id": "c", "text": "Pour demander un remboursement" }
+    ],
+    "correctChoiceId": "b",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-co-q4",
+    "taskTemplateId": "tcf-co-task-4",
+    "cecrLevel": "B1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tcf/comprehension_orale/tcf-co-q4.wav",
+    "dialogueScript": [
+      { "speaker": "Nadia", "voice": "estelle", "text": "On avait prévu un pique-nique samedi, mais la météo annonce de la pluie toute la journée." },
+      { "speaker": "Hugo", "voice": "marius", "text": "Ah zut. On pourrait le décaler à dimanche, il paraît qu'il fera beau." },
+      { "speaker": "Nadia", "voice": "estelle", "text": "Bonne idée, dimanche ça m'arrange même mieux. Je préviens les autres." },
+      { "speaker": "Hugo", "voice": "marius", "text": "Parfait, à dimanche alors, même heure qu'avant." }
+    ],
+    "questionText": "Pourquoi Nadia et Hugo changent-ils leurs plans ?",
+    "choices": [
+      { "id": "a", "text": "À cause de la météo" },
+      { "id": "b", "text": "Parce qu'Hugo est malade" },
+      { "id": "c", "text": "Parce que le parc est fermé" }
+    ],
+    "correctChoiceId": "a",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-co-q5",
+    "taskTemplateId": "tcf-co-task-5",
+    "cecrLevel": "B2",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tcf/comprehension_orale/tcf-co-q5.wav",
+    "dialogueScript": [
+      { "speaker": "La locataire", "voice": "estelle", "text": "Mon bail se termine dans deux mois. Je voulais savoir si vous comptiez le renouveler aux mêmes conditions." },
+      { "speaker": "Le propriétaire", "voice": "george", "text": "Je souhaite le renouveler, mais je dois vous prévenir que le loyer augmentera légèrement, d'environ trois pour cent, conformément à l'indice en vigueur." },
+      { "speaker": "La locataire", "voice": "estelle", "text": "D'accord, c'est raisonnable. Vous pouvez m'envoyer le nouveau bail par courriel ?" },
+      { "speaker": "Le propriétaire", "voice": "george", "text": "Bien sûr, je vous l'envoie cette semaine avec les nouvelles modalités détaillées." }
+    ],
+    "questionText": "Que va-t-il se passer avec le loyer de la locataire ?",
+    "choices": [
+      { "id": "a", "text": "Il va rester exactement le même" },
+      { "id": "b", "text": "Il va légèrement augmenter" },
+      { "id": "c", "text": "Il va être réduit" }
+    ],
+    "correctChoiceId": "b",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  },
+  {
+    "id": "tcf-co-q6",
+    "taskTemplateId": "tcf-co-task-6",
+    "cecrLevel": "C1",
+    "stimulusType": "audio",
+    "stimulusContent": "/audio/tcf/comprehension_orale/tcf-co-q6.wav",
+    "dialogueScript": [
+      { "speaker": "Julien", "voice": "cosette", "text": "Ce qui me frappe, c'est qu'on parle sans arrêt d'équilibre entre vie professionnelle et vie privée, mais dans les faits, personne n'ose vraiment déconnecter." },
+      { "speaker": "Léa", "voice": "estelle", "text": "C'est vrai, même si je nuancerais : dans certaines entreprises, le droit à la déconnexion est désormais pris très au sérieux, avec de vraies sanctions pour les managers qui ne le respectent pas." },
+      { "speaker": "Julien", "voice": "cosette", "text": "Peut-être, mais je pense que ça reste minoritaire. La pression sociale à rester joignable est encore trop forte, réglementation ou pas." },
+      { "speaker": "Léa", "voice": "estelle", "text": "Là-dessus, on est d'accord : la loi seule ne suffit pas, il faut un vrai changement de culture d'entreprise." }
+    ],
+    "questionText": "Sur quel point Julien et Léa se rejoignent-ils finalement ?",
+    "choices": [
+      { "id": "a", "text": "La loi seule ne suffit pas, il faut changer la culture d'entreprise" },
+      { "id": "b", "text": "Le droit à la déconnexion est inutile" },
+      { "id": "c", "text": "Toutes les entreprises respectent déjà l'équilibre vie pro/vie privée" }
+    ],
+    "correctChoiceId": "a",
+    "createdBy": "maintainer",
+    "reviewStatus": "approved"
+  }
+]

@@ -14,5 +14,21 @@
   { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 6.5, "rawScoreMax": 7.5, "nclcLevel": 7, "clbLevel": 7 },
   { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 7.5, "rawScoreMax": 8.5, "nclcLevel": 8, "clbLevel": 8 },
   { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 8.5, "rawScoreMax": 9.5, "nclcLevel": 9, "clbLevel": 9 },
-  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 9.5, "rawScoreMax": 10, "nclcLevel": 10, "clbLevel": 10 }
+  { "examType": "TCF", "sectionType": "expression_ecrite", "rawScoreMin": 9.5, "rawScoreMax": 10, "nclcLevel": 10, "clbLevel": 10 },
+
+  { "examType": "TEF", "sectionType": "comprehension_orale", "rawScoreMin": 0, "rawScoreMax": 1, "nclcLevel": 3, "clbLevel": 3 },
+  { "examType": "TEF", "sectionType": "comprehension_orale", "rawScoreMin": 1, "rawScoreMax": 2, "nclcLevel": 4, "clbLevel": 4 },
+  { "examType": "TEF", "sectionType": "comprehension_orale", "rawScoreMin": 2, "rawScoreMax": 3, "nclcLevel": 5, "clbLevel": 5 },
+  { "examType": "TEF", "sectionType": "comprehension_orale", "rawScoreMin": 3, "rawScoreMax": 4, "nclcLevel": 6, "clbLevel": 6 },
+  { "examType": "TEF", "sectionType": "comprehension_orale", "rawScoreMin": 4, "rawScoreMax": 5, "nclcLevel": 7, "clbLevel": 7 },
+  { "examType": "TEF", "sectionType": "comprehension_orale", "rawScoreMin": 5, "rawScoreMax": 6, "nclcLevel": 8, "clbLevel": 8 },
+  { "examType": "TEF", "sectionType": "comprehension_orale", "rawScoreMin": 6, "rawScoreMax": 6, "nclcLevel": 9, "clbLevel": 9 },
+
+  { "examType": "TCF", "sectionType": "comprehension_orale", "rawScoreMin": 0, "rawScoreMax": 1, "nclcLevel": 3, "clbLevel": 3 },
+  { "examType": "TCF", "sectionType": "comprehension_orale", "rawScoreMin": 1, "rawScoreMax": 2, "nclcLevel": 4, "clbLevel": 4 },
+  { "examType": "TCF", "sectionType": "comprehension_orale", "rawScoreMin": 2, "rawScoreMax": 3, "nclcLevel": 5, "clbLevel": 5 },
+  { "examType": "TCF", "sectionType": "comprehension_orale", "rawScoreMin": 3, "rawScoreMax": 4, "nclcLevel": 6, "clbLevel": 6 },
+  { "examType": "TCF", "sectionType": "comprehension_orale", "rawScoreMin": 4, "rawScoreMax": 5, "nclcLevel": 7, "clbLevel": 7 },
+  { "examType": "TCF", "sectionType": "comprehension_orale", "rawScoreMin": 5, "rawScoreMax": 6, "nclcLevel": 8, "clbLevel": 8 },
+  { "examType": "TCF", "sectionType": "comprehension_orale", "rawScoreMin": 6, "rawScoreMax": 6, "nclcLevel": 9, "clbLevel": 9 }
 ]
